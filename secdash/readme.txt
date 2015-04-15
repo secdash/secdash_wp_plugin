@@ -1,4 +1,4 @@
-=== SECDASH ==
+=== SECDASH ===
 Contributors: Patrick Helmig, Nils Hesse
 Plugin URI: http://secdash.com
 Tags: secdash, monitoring, security, updates, auto-update
