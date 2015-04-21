@@ -13,9 +13,9 @@ include 'secdash_options.php';
 include 'secdash_utils.php';
 
 class Secdash {
-    private $secdash_api_url = "http://api.secdash.com/updater/1.0/";
+    private $secdash_api_url = "https://api.secdash.com/updater/1.0/";
     private $secdash_shared_secret_name = 'secdash_shared_secret';
-    private $secdash_plugin_version = "0.9";
+    private $secdash_plugin_version = "0.9.1";
     private $utils;
     private $options;
 
