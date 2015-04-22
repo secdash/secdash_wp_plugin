@@ -228,7 +228,8 @@ class Secdash {
             if (strpos($file,"/")===false) {
             $data['FileName'] = $file;
                 } else {
-            $data['FileName'] = explode("/",$file)[0];
+            $data['FileName'] = explode("/",$file);
+            $data['FileName'] = $data['FileName'][0];
             }
             
             $plugins[] = array(
