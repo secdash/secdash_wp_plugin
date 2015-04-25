@@ -6,3 +6,6 @@ SECDASH is currently in private beta. Please visit http://secdash.com for more i
 
 Pull Requests from customers/users/friends will be accepted.
 
+Special Thanks to:
+Nils Hesse ([irrenhaus](https://github.com/irrenhaus))
+Karsten Scheunemann ([kos4live](https://github.com/kos4live))
