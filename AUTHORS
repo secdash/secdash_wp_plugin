@@ -1,0 +1,12 @@
+THIS FILE CONTAINS A LIST OF AUTHORS / CONTRIBUTORS TO THE SECDASH WP PLUGIN. 
+THE ORDER IS BY TIME OF CONTRIBUTION STARTING WITH THE FIRST CONTRIBUTIONS. 
+
+NAME: Patrick Helmig
+WORK: Backend, Specifications, Bugfixes, Maintainer
+
+NAME: Karsten Scheunemann 
+WORK: Implementation of the Challenge/Response code, phpinfo parsing, sharedkey generation
+
+NAME: Nils Hesse
+WORK: WordPress scaffolding and implementation, collecting installed WP plugins, challenge response customization for WP
+
