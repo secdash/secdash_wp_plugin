@@ -9,6 +9,10 @@
  * License: GPL2
  */
 
+/*
+ * For a full list of contributors please check the AUTHORS file on https://github.com/secdash/secdash_wp_plugin/
+ */
+
 include 'secdash_options.php';
 include 'secdash_utils.php';
 
