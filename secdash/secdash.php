@@ -189,7 +189,9 @@ class Secdash {
      * @return array
      */
     private function collectInformations() {
-        global $wp_version;
+        
+        // Reload version.php since some plugins like to change the global wp_version
+        include( ABSPATH . WPINC . '/version.php' );
 
         if (!function_exists('get_plugins')) {
             require_once ABSPATH . 'wp-admin/includes/plugin.php';
