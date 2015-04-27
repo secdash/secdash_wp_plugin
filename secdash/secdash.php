@@ -3,7 +3,7 @@
  * Plugin Name: SECDASH
  * Plugin URI: http://secdash.com/
  * Description: A plugin which provides the SECDASH service with all information it needs.
- * Version: 0.9.1
+ * Version: 0.9.3
  * Author: SECDASH UG (haftungsbeschraenkt)
  * Author URI: http://secdash.com/
  * License: GPL2
@@ -19,7 +19,7 @@ include 'secdash_utils.php';
 class Secdash {
     private $secdash_api_url = "https://api.secdash.com/updater/1.0/";
     private $secdash_shared_secret_name = 'secdash_shared_secret';
-    private $secdash_plugin_version = "0.9.1";
+    private $secdash_plugin_version = "0.9.3";
     private $utils;
     private $options;
 
