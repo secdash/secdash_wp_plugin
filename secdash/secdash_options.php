@@ -45,7 +45,7 @@ class SecdashOptions {
             </tr>
         </table>
 
-        <?php submit_button() ?>
+        <input type="submit" name="submit" id="submit" class="button button-primary" value="Save Changes"  />
 
         </form>
         </div>
