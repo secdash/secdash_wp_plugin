@@ -81,14 +81,18 @@ class Secdash {
         $error_message = "";
         $error_type = "error";
         if($this->doBackendRegistration($request_data, $registration_error)) {
-            $error_message = 'Successfully (re-)registered with SECDASH!';
+            if ($registration_error == 'init'){
+                $error_message = 'SECDASH was successfully initialized! <br/>We now continoulsy monitor your WordPress and your plugins for security issues and will notify you once an issue appears. <br/> <a href="https://www.secdash.com/board/">Details on SECDASH.com</a>';
+            } else {
+                $error_message = 'Your SECDASH link was updated successfully! <br/>We now continoulsy monitor your WordPress and your plugins for security issues and will notify you once an issue appears. <br/> <a href="https://www.secdash.com/board/">Details on SECDASH.com</a>';
+            }
             $error_type = 'updated';
         } else {
             $error_message = 'Sorry, I was unable to send the registration request to the SECDASH server.<br/>';
             if($registration_error != null) {
-                $error_message .= "The server error was:\r\n<br/>$registration_error<br/>";
+                $error_message .= "$registration_error<br/>";
             }
-            $error_message .= 'Please use this code for manual registration:<br/>'.$this->formatBase64($request_data_encoded);
+            $error_message .= 'Please use this code for manual registration:<br/><textarea rows="15" cols="64">'.$request_data_encoded.'</textarea>';
         }
 
         $this->settingsError($error_message, $error_type);
@@ -278,17 +282,6 @@ class Secdash {
         set_transient('settings_errors', $wp_settings_errors);
     }
 
-    private function formatBase64($data) {
-        $result = "";
-        for($i = 0; $i < strlen($data); $i++) {
-            $result = $result . $data[$i];
-            if($i > 0 && $i % 32 == 0) {
-                $result = $result . "\r\n<br/>";
-            }
-        }
-        return $result;
-    }
-
     private function redirectRefererAndExit() {
         wp_redirect($_SERVER['HTTP_REFERER']);
         exit();
@@ -328,7 +321,7 @@ class Secdash {
         $json_result = json_decode($result, true);
 
         if(!$result || !$json_result || sizeof($json_result) == 0) {
-            $error_msg = "Invalid response. Please contact SECDASH to solve this problem.";
+            $error_msg = "Can't connect to SECDASH API Server. Please proceed with manual registration.";
             return false;
         }
 
@@ -345,9 +338,20 @@ class Secdash {
             if(!array_key_exists('statusCode', $json_result)) {
                 $error_msg = "Invalid response. Please contact SECDASH to solve this problem.";
                 return false;
-            } else if($json_result['statusCode'] > 1) {
+            } else {
+             if($json_result['statusCode'] <= 1) {
+                // Successful initialized. 
+                if ($json_result['statusCode'] == 0) {
+                    // First initialization
+                    $error_msg="init";
+                } else {
+                    // Update
+                    $error_msg = "update";
+                }
+             } else {
                 $error_msg = $this->prettyPrintBackendError($json_result);
                 return false;
+             }
             }
         }
 
