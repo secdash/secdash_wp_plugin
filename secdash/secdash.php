@@ -92,7 +92,7 @@ class Secdash {
             if($registration_error != null) {
                 $error_message .= "$registration_error<br/>";
             }
-            $error_message .= 'Please use this code for manual registration:<br/><textarea rows="15" cols="64">'.$request_data_encoded.'</textarea>';
+            $error_message .= 'Please use this code for manual registration on SECDASH.com:<br/><textarea rows="15" cols="64">'.$request_data_encoded.'</textarea>';
         }
 
         $this->settingsError($error_message, $error_type);
