@@ -10,3 +10,5 @@ WORK: Implementation of the Challenge/Response code, phpinfo parsing, sharedkey 
 NAME: Nils Hesse
 WORK: WordPress scaffolding and implementation, collecting installed WP plugins, challenge response customization for WP
 
+NAME: Erik Bernskiöld
+WORK: Implemented internationalization functionality, swedish translation
