@@ -1,0 +1,100 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: SECDASH\n"
+"POT-Creation-Date: 2015-05-15 10:00+0100\n"
+"PO-Revision-Date: 2015-05-15 10:02+0100\n"
+"Last-Translator: Erik Bernskiold <erik@bernskioldmedia.com>\n"
+"Language-Team: Erik Bernskiold <erik@bernskioldmedia.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.6\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: secdash.php:60
+msgid "You have to enter your license key."
+msgstr ""
+
+#: secdash.php:68
+msgid ""
+"Could not save shared secret to the database. Please contact SECDASH to "
+"solve this problem."
+msgstr ""
+
+#: secdash.php:88
+msgid ""
+"SECDASH was successfully initialized! <br/>We now continoulsy monitor your "
+"WordPress and your plugins for security issues and will notify you once an "
+"issue appears. <br/> <a href=\"https://www.secdash.com/board/\">Details on "
+"SECDASH.com</a>"
+msgstr ""
+
+#: secdash.php:90
+msgid ""
+"Your SECDASH link was updated successfully! <br/>We now continoulsy monitor "
+"your WordPress and your plugins for security issues and will notify you once "
+"an issue appears. <br/> <a href=\"https://www.secdash.com/board/\">Details "
+"on SECDASH.com</a>"
+msgstr ""
+
+#: secdash.php:94
+msgid ""
+"Sorry, I was unable to send the registration request to the SECDASH server."
+"<br/>"
+msgstr ""
+
+#: secdash.php:98
+#, php-format
+msgid ""
+"Please use this code for manual registration on SECDASH.com:<br/><textarea "
+"rows=\"15\" cols=\"64\">%s</textarea>"
+msgstr ""
+
+#: secdash.php:327
+msgid ""
+"Can't connect to SECDASH API Server. Please proceed with manual registration."
+msgstr ""
+
+#: secdash.php:337
+#, php-format
+msgid ""
+"Invalid HTTP status code %s. Please contact SECDASH to solve this problem."
+msgstr ""
+
+#: secdash_options.php:6 secdash_options.php:25
+msgid "SECDASH Options"
+msgstr ""
+
+#: secdash_options.php:6
+msgid "SECDASH"
+msgstr ""
+
+#: secdash_options.php:19
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: secdash_options.php:31
+msgid "For (re-)registering with SECDASH please enter your licence key:"
+msgstr ""
+
+#: secdash_options.php:36
+msgid ""
+"This plugin is already registered with SECDASH. Submitting this form will "
+"result in updating the registration."
+msgstr ""
+
+#: secdash_options.php:43
+msgid "License Key:"
+msgstr ""
+
+#: secdash_options.php:48
+msgid "Save Changes"
+msgstr ""
