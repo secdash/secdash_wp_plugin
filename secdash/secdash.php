@@ -29,6 +29,9 @@ class Secdash {
         add_action('wp', array($this, 'handleRequest'));
         add_action('admin_action_secdash_update_shared_secret', array($this, 'updateSharedSecret'));
 
+        // Add the textdomain and translation support
+        add_action( 'plugins_loaded', array( $this, 'translation' ) );
+
         $this->utils = new SecdashUtils;
         $this->options = new SecdashOptions;
 
@@ -54,7 +57,7 @@ class Secdash {
         $license_key = $_POST['secdash_license_key'];
 
         if(!$license_key) {
-            $this->settingsError('You have to enter your license key.', 'error');
+            $this->settingsError( __( 'You have to enter your license key.', 'secdash' ), 'error');
             $this->redirectRefererAndExit();
         }
 
@@ -62,7 +65,7 @@ class Secdash {
         // and save it into the database.
         $new_shared_secret = $this->utils->generateChallenge(128);
         if(!update_option($this->secdash_shared_secret_name, $new_shared_secret)) {
-            settings_error('Could not save shared secret to the database. Please contact SECDASH to solve this problem.', 'error');
+            settings_error( __( 'Could not save shared secret to the database. Please contact SECDASH to solve this problem.', 'secdash' ), 'error');
             return false;
         }
 
@@ -82,17 +85,17 @@ class Secdash {
         $error_type = "error";
         if($this->doBackendRegistration($request_data, $registration_error)) {
             if ($registration_error == 'init'){
-                $error_message = 'SECDASH was successfully initialized! <br/>We now continoulsy monitor your WordPress and your plugins for security issues and will notify you once an issue appears. <br/> <a href="https://www.secdash.com/board/">Details on SECDASH.com</a>';
+                $error_message = __( 'SECDASH was successfully initialized! <br/>We now continoulsy monitor your WordPress and your plugins for security issues and will notify you once an issue appears. <br/> <a href="https://www.secdash.com/board/">Details on SECDASH.com</a>', 'secdash' );
             } else {
-                $error_message = 'Your SECDASH link was updated successfully! <br/>We now continoulsy monitor your WordPress and your plugins for security issues and will notify you once an issue appears. <br/> <a href="https://www.secdash.com/board/">Details on SECDASH.com</a>';
+                $error_message = __( 'Your SECDASH link was updated successfully! <br/>We now continoulsy monitor your WordPress and your plugins for security issues and will notify you once an issue appears. <br/> <a href="https://www.secdash.com/board/">Details on SECDASH.com</a>', 'secdash' );
             }
             $error_type = 'updated';
         } else {
-            $error_message = 'Sorry, I was unable to send the registration request to the SECDASH server.<br/>';
+            $error_message = __( 'Sorry, I was unable to send the registration request to the SECDASH server.<br/>', 'secdash' );
             if($registration_error != null) {
                 $error_message .= "$registration_error<br/>";
             }
-            $error_message .= 'Please use this code for manual registration on SECDASH.com:<br/><textarea rows="15" cols="64">'.$request_data_encoded.'</textarea>';
+            $error_message .= sprintf( __( 'Please use this code for manual registration on SECDASH.com:<br/><textarea rows="15" cols="64">%s</textarea>', 'secdash' ), $request_data_encoded );
         }
 
         $this->settingsError($error_message, $error_type);
@@ -186,7 +189,7 @@ class Secdash {
             echo json_encode($data);
             exit(0);
         }
-        
+
     }
 
     /*
@@ -211,7 +214,7 @@ class Secdash {
      * @return array
      */
     private function collectInformations() {
-        
+
         // Reload version.php since some plugins like to change the global wp_version
         include( ABSPATH . WPINC . '/version.php' );
 
@@ -259,7 +262,7 @@ class Secdash {
             $data['FileName'] = explode("/",$file);
             $data['FileName'] = $data['FileName'][0];
             }
-            
+
             $plugins[] = array(
                 "name" => $name,
                 "version" => $version,
@@ -321,7 +324,7 @@ class Secdash {
         $json_result = json_decode($result, true);
 
         if(!$result || !$json_result || sizeof($json_result) == 0) {
-            $error_msg = "Can't connect to SECDASH API Server. Please proceed with manual registration.";
+            $error_msg = __( "Can't connect to SECDASH API Server. Please proceed with manual registration.", 'secdash' );
             return false;
         }
 
@@ -331,16 +334,16 @@ class Secdash {
             if(array_key_exists('statusCode', $json_result) && array_key_exists('statusMessage', $json_result)) {
                 $error_msg = $this->prettyPrintBackendError($json_result);
             } else {
-                $error_msg = "Invalid HTTP status code $matches[1]. Please contact SECDASH to solve this problem.";
+                $error_msg = sprintf( __( 'Invalid HTTP status code %s. Please contact SECDASH to solve this problem.', 'secdash'), $matches[1] );
             }
             return false;
         } else {
             if(!array_key_exists('statusCode', $json_result)) {
-                $error_msg = "Invalid response. Please contact SECDASH to solve this problem.";
+                $error_msg = sprintf( "Invalid response. Please contact SECDASH to solve this problem.", 'secdash' );
                 return false;
             } else {
              if($json_result['statusCode'] <= 1) {
-                // Successful initialized. 
+                // Successful initialized.
                 if ($json_result['statusCode'] == 0) {
                     // First initialization
                     $error_msg="init";
@@ -357,6 +360,14 @@ class Secdash {
 
         return true;
     }
+
+    /**
+     * Add Translation Support
+     */
+    public function translation() {
+        load_plugin_textdomain( 'secdash', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+    }
+
 }
 
 new Secdash;
