@@ -1,0 +1,11 @@
+{
+  "name": "secdash",
+  "description": "A plugin which provides the SECDASH service with all information it needs.",
+  "version": "0.9.4",
+  "homepage": "http://www.secdash.com",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-checktextdomain": "^0.1.1",
+    "grunt-wp-i18n": "^0.5.0"
+  }
+}
