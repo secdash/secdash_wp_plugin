@@ -1,7 +1,7 @@
 {
   "name": "secdash",
   "description": "A plugin which provides the SECDASH service with all information it needs.",
-  "version": "0.9.4",
+  "version": "0.9.6",
   "homepage": "http://www.secdash.com",
   "devDependencies": {
     "grunt": "^0.4.5",
