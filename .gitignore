@@ -1,5 +1,6 @@
 .idea/
 wp_svn/
+wp_svn_/
 node_modules/
 .DS_Store
 
