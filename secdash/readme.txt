@@ -8,11 +8,11 @@ Stable tag: 1.0
 License: GPLv2
 License URI: https://raw.githubusercontent.com/secdash/secdash_wp_plugin/master/LICENSE
 
-SECDASH allows website owners to monitor the security of their Webserver, WordPress installation and Plugins in almost real time. As soon as a security issue becomes known we notify the website's owner.
+SECDASH allows website owners to monitor the security of their Webserver, WordPress installation and Plugins in almost real time.
 
 == Description == 
 
-NOTE: For WordPress users SECDASH is free for up to three websites.
+**NOTE:** For WordPress users SECDASH is free for up to three websites.
 
 SECDASH is a cloud-based website monitoring platform that empowers organizations with multiple websites and different Content-Management-Systems to always know if they are online, up-to-date and secure.
 
@@ -26,7 +26,13 @@ Try it out here: [secdash.com](https://www.secdash.com/)
 
 1. Upload the `secdash` folder to `/wp-content/plugins/`
 1. Activate the plugin through the 'Plugins' menu in WordPress
-3. Initialize SECDASH through the item 'SECDAS' under the 'Options' menu
+3. Initialize SECDASH through the item 'SECDASH' under the 'Options' menu
+
+== Screenshots ==
+
+1. Initialize SECDASH by entering your license key through the item 'SECDASH' under the 'Options' menu.
+2. Our engine will retrieve version information from you site on a regular basis (current default: every 10 minutes)
+3. As soon as one of the used software components is affected by a security issue you will be notified
 
 == Changelog ==
 
