@@ -2,9 +2,9 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: SECDASH 0.9.6\n"
+"Project-Id-Version: SECDASH 1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/secdash/secdash_wp_plugin/issues\n"
-"POT-Creation-Date: 2015-05-19 14:33:44+00:00\n"
+"POT-Creation-Date: 2015-06-01 08:04:23+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
