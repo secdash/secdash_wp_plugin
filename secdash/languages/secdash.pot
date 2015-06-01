@@ -1,35 +1,33 @@
+# Copyright (C) 2015 SECDASH UG (haftungsbeschraenkt)
+# This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: SECDASH\n"
-"POT-Creation-Date: 2015-05-15 10:00+0100\n"
-"PO-Revision-Date: 2015-05-15 10:02+0100\n"
-"Last-Translator: Erik Bernskiold <erik@bernskioldmedia.com>\n"
-"Language-Team: Erik Bernskiold <erik@bernskioldmedia.com>\n"
-"Language: en_US\n"
+"Project-Id-Version: SECDASH 0.9.6\n"
+"Report-Msgid-Bugs-To: https://github.com/secdash/secdash_wp_plugin/issues\n"
+"POT-Creation-Date: 2015-05-19 14:33:44+00:00\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.6\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: *.js\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Secdash <info@secdash.com>\n"
+"X-Generator: grunt-wp-i18n 0.5.2\n"
 
-#: secdash.php:60
-msgid "You have to enter your license key."
+#: secdash/secdash.php:51
+msgid "Missing License Key or CSRF attempt."
 msgstr ""
 
-#: secdash.php:68
+#: secdash/secdash.php:58
+msgid "Invalid license key."
+msgstr ""
+
+#: secdash/secdash.php:72
 msgid ""
-"Could not save shared secret to the database. Please contact SECDASH to "
-"solve this problem."
+"Can't write to database. Please verify that `update_options` is available "
+"or contact SECDASH to solve this problem."
 msgstr ""
 
-#: secdash.php:88
+#: secdash/secdash.php:96
 msgid ""
 "SECDASH was successfully initialized! <br/>We now continoulsy monitor your "
 "WordPress and your plugins for security issues and will notify you once an "
@@ -37,64 +35,126 @@ msgid ""
 "SECDASH.com</a>"
 msgstr ""
 
-#: secdash.php:90
-msgid ""
-"Your SECDASH link was updated successfully! <br/>We now continoulsy monitor "
-"your WordPress and your plugins for security issues and will notify you once "
-"an issue appears. <br/> <a href=\"https://www.secdash.com/board/\">Details "
-"on SECDASH.com</a>"
+#: secdash/secdash.php:100
+msgid "The initialization request could not be sent to the SECDASH API server:<br/>"
 msgstr ""
 
-#: secdash.php:94
+#: secdash/secdash.php:105
 msgid ""
-"Sorry, I was unable to send the registration request to the SECDASH server."
-"<br/>"
-msgstr ""
-
-#: secdash.php:98
-#, php-format
-msgid ""
-"Please use this code for manual registration on SECDASH.com:<br/><textarea "
+"Please use the code below to complete the initialization manually here: <a "
+"href=\"https://secdash.com/board/asset/create\" "
+"target=\"_blank\">SECDASH.com/board/asset/create</a>:<br/><textarea "
 "rows=\"15\" cols=\"64\">%s</textarea>"
 msgstr ""
 
-#: secdash.php:327
+#: secdash/secdash.php:335
 msgid ""
-"Can't connect to SECDASH API Server. Please proceed with manual registration."
+"SECDASH's API backend can't reach the target url.<br/>Please verifiy the "
+"following conditions are given:"
 msgstr ""
 
-#: secdash.php:337
-#, php-format
+#: secdash/secdash.php:337
+msgid "This website is currently not in maintenance mode"
+msgstr ""
+
+#: secdash/secdash.php:338
 msgid ""
-"Invalid HTTP status code %s. Please contact SECDASH to solve this problem."
+"The index.php is reachable for our server (our server is not blocked, this "
+"page is not hidden behind a .htpasswd, etc.)"
 msgstr ""
 
-#: secdash_options.php:6 secdash_options.php:25
-msgid "SECDASH Options"
+#: secdash/secdash.php:339
+msgid "The SITE_URL returns the correct URL for this website"
 msgstr ""
 
-#: secdash_options.php:6
+#: secdash/secdash.php:340
+msgid "Requests to this website don't time out on a regular basis"
+msgstr ""
+
+#: secdash/secdash.php:341
+msgid "For further assistance contact support@secdash.com"
+msgstr ""
+
+#: secdash/secdash.php:347
+msgid ""
+"Invalid license key. You can find your license key on <a "
+"href=\"https://secdash.com/board/\">SECDASH.com</a>"
+msgstr ""
+
+#: secdash/secdash.php:389
+msgid ""
+"Outgoing HTTP connections are not allowed on this server. (allow_url_fopen "
+"is set to 'off' in php.ini )"
+msgstr ""
+
+#: secdash/secdash.php:399
+msgid ""
+"Can't connect to SECDASH API Server. Please proceed with manual "
+"registration."
+msgstr ""
+
+#: secdash/secdash.php:413
+msgid "Invalid HTTP status code %s. Please contact SECDASH to solve this problem."
+msgstr ""
+
+#: secdash/secdash_options.php:7 secdash/secdash_options.php:26
+#: secdash/secdash_options.php:57
+msgid "Initialize SECDASH"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
 msgid "SECDASH"
 msgstr ""
 
-#: secdash_options.php:19
+#: secdash/secdash_options.php:20
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: secdash_options.php:31
-msgid "For (re-)registering with SECDASH please enter your licence key:"
+#: secdash/secdash_options.php:29
+msgid "What happens here?"
 msgstr ""
 
-#: secdash_options.php:36
+#: secdash/secdash_options.php:30
 msgid ""
-"This plugin is already registered with SECDASH. Submitting this form will "
-"result in updating the registration."
+"In order to monitor your website SECDASH is required to be able to retrieve "
+"the currently installed WordPress- and plugin versions. The initialization "
+"process is required to connect this WordPress website to your SECDASH "
+"profile and to generate a shared key that is used to retrieve the version "
+"information from this website in a secure manner. "
 msgstr ""
 
-#: secdash_options.php:43
+#: secdash/secdash_options.php:33
+msgid ""
+"Please note that the initialization is not possible while WordPress is in "
+"maintenance mode or while the index.php is not reachable."
+msgstr ""
+
+#: secdash/secdash_options.php:39
+msgid ""
+"To initialize SECDASH please enter your license key (for security reasons "
+"this key will NOT be stored in your WordPress database). <br/>The SECDASH "
+"license key is available on <a href=\"https://secdash.com/board\" "
+"title=\"SECDASH Homepage\">SECDASH.com</a>:"
+msgstr ""
+
+#: secdash/secdash_options.php:44
+msgid ""
+"SECDASH has been successfully activated. Re-enter your license key to "
+"repeat the initialization (e.g. after the location of this website changed)."
+msgstr ""
+
+#: secdash/secdash_options.php:51
 msgid "License Key:"
 msgstr ""
 
-#: secdash_options.php:48
-msgid "Save Changes"
+#. Author URI of the plugin/theme
+msgid "http://secdash.com/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "A plugin which provides the SECDASH service with all information it needs."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "SECDASH UG (haftungsbeschraenkt)"
 msgstr ""

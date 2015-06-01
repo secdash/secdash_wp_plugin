@@ -27,6 +27,9 @@ module.exports = function(grunt) {
 		checktextdomain: {
 		   options:{
 		      text_domain: 'secdash',
+               exclude: [
+                   'node_modules/**/*'
+               ],
 		      correct_domain: true, // Will correct missing/variable domains
 		      keywords: [ // WordPress localisation functions
 		            '__:1,2d',
@@ -46,10 +49,10 @@ module.exports = function(grunt) {
 		      ],
 		   },
 		   files: {
-		       src:  [ '**/*.php', ], //All php files
-		       expand: true,
-		   },
-		},
+		       src:  [ 'secdash/**/*.php', ], //All php files
+		       expand: true
+		   }
+		}
 
 	});
 

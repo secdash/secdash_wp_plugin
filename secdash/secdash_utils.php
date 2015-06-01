@@ -2,7 +2,9 @@
 
 class SecdashUtils {
     protected $_phpInfoArray = null;
-
+    private $secdash_shared_secret_name = 'secdash_shared_secret';
+    private $secdash_no_cookie_challenge_name = 'secdash_no_cookie_challenge';
+    private $secdash_successful_initialized = 'secdash_successful_initialized';
     /**
      * @param int $hexLength max 32
      */
@@ -26,12 +28,25 @@ class SecdashUtils {
      * Verifies a given response.
      * @return bool true if the response is valid
      */
-    public function verifyResponse($sd_response) {
-        if(!get_option('secdash_shared_secret')) {
+    public function verifyResponse($sd_response,$no_cookie=false) {
+        $shared_secret = get_option($this->secdash_shared_secret_name);
+        // Not yet initialized
+        if(!$shared_secret) {
             return false;
         }
 
-        $correct_response = hash('sha512', get_option('secdash_shared_secret') . $_SESSION['secdash_challenge']);
+        if ($no_cookie) {
+            // If we have can't use cookies the last challenge will be stored in the database
+            $challenge = get_option($this->secdash_no_cookie_challenge_name);
+            // The challenge has to be available
+            if (!$challenge) {
+                return false;
+            }
+        } else {
+            // use challenge f
+            $challenge = $_SESSION['secdash_challenge'];
+        }
+        $correct_response = hash('sha512', $shared_secret . $challenge);
         return ($correct_response == $sd_response);
     }
 
