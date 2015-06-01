@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SECDASH\n"
 "Report-Msgid-Bugs-To: https://github.com/secdash/secdash_wp_plugin/issues\n"
 "POT-Creation-Date: 2015-05-19 14:33:44+00:00\n"
-"PO-Revision-Date: 2015-05-15 10:15+0100\n"
+"PO-Revision-Date: 2015-06-01 10:12+0100\n"
 "Last-Translator: Erik Bernskiold <erik@bernskioldmedia.com>\n"
 "Language-Team: Erik Bernskiold <erik@bernskioldmedia.com>\n"
 "Language: sv_SE\n"
@@ -22,20 +22,19 @@ msgstr ""
 
 #: secdash/secdash.php:51
 msgid "Missing License Key or CSRF attempt."
-msgstr ""
+msgstr "Licensnyckel saknas eller CSRF försök."
 
 #: secdash/secdash.php:58
 msgid "Invalid license key."
-msgstr ""
+msgstr "Ogiltig licensnyckel."
 
 #: secdash/secdash.php:72
-#, fuzzy
 msgid ""
 "Can't write to database. Please verify that `update_options` is available or "
 "contact SECDASH to solve this problem."
 msgstr ""
-"Kunde inte spara den delade nyckeln till databasen. Kontakta SECDASH för att "
-"lösa problemet."
+"Kan inte skriva till databasen. Kontrollera att 'update_options' är "
+"tillgängligt eller kontakta SECDASH för att lösa problemet."
 
 #: secdash/secdash.php:96
 msgid ""
@@ -52,7 +51,7 @@ msgstr ""
 #: secdash/secdash.php:100
 msgid ""
 "The initialization request could not be sent to the SECDASH API server:<br/>"
-msgstr ""
+msgstr "Initieringsförfrågan kunde inte skickas till SECDASH API-servern:<br/>"
 
 #: secdash/secdash.php:105
 msgid ""
@@ -61,46 +60,58 @@ msgid ""
 "com/board/asset/create</a>:<br/><textarea rows=\"15\" cols=\"64\">%s</"
 "textarea>"
 msgstr ""
+"Vänligen använd koden nedan för att slutföra initialiseringen manuellt här: "
+"<a href=\"https://secdash.com/board/asset/create\" target=\"_blank\">SECDASH."
+"com/board/asset/create</a>:<br/><textarea rows=\"15\" cols=\"64\">%s</"
+"textarea>"
 
 #: secdash/secdash.php:335
 msgid ""
 "SECDASH's API backend can't reach the target url.<br/>Please verifiy the "
 "following conditions are given:"
 msgstr ""
+"SECDASH API kan inte komma åt mållänken.<br/>Vänligen säkerställ att "
+"följande villkor uppnås:"
 
 #: secdash/secdash.php:337
 msgid "This website is currently not in maintenance mode"
-msgstr ""
+msgstr "Webbplatsen är för närvarande inte i underhållsläge."
 
 #: secdash/secdash.php:338
 msgid ""
 "The index.php is reachable for our server (our server is not blocked, this "
 "page is not hidden behind a .htpasswd, etc.)"
 msgstr ""
+"Filen index.php är nåbar från vår server (vår server är inte blockad, denna "
+"sida är inte dold bakom lösenordsskydd osv)."
 
 #: secdash/secdash.php:339
 msgid "The SITE_URL returns the correct URL for this website"
-msgstr ""
+msgstr "SITE_URL returnerar korrekt URL för denna webbplats"
 
 #: secdash/secdash.php:340
 msgid "Requests to this website don't time out on a regular basis"
-msgstr ""
+msgstr "Förfrågningar till denna webbplats timar inte ut regelbundet"
 
 #: secdash/secdash.php:341
 msgid "For further assistance contact support@secdash.com"
-msgstr ""
+msgstr "För mer hjälp, kontakta support@secdash.com"
 
 #: secdash/secdash.php:347
 msgid ""
 "Invalid license key. You can find your license key on <a href=\"https://"
 "secdash.com/board/\">SECDASH.com</a>"
 msgstr ""
+"Ogiltig licensnyckel. Du kan hitta din licensnyckel på <a href=\"https://"
+"secdash.com/board/\">SECDASH.com</a>."
 
 #: secdash/secdash.php:389
 msgid ""
 "Outgoing HTTP connections are not allowed on this server. (allow_url_fopen "
 "is set to 'off' in php.ini )"
 msgstr ""
+"Utgående HTTP-anslutningar är inte tillåtna på denna server. "
+"(allow_url_fopen är satt till 'off' i php.ini)"
 
 #: secdash/secdash.php:399
 msgid ""
@@ -118,7 +129,7 @@ msgstr ""
 #: secdash/secdash_options.php:7 secdash/secdash_options.php:26
 #: secdash/secdash_options.php:57
 msgid "Initialize SECDASH"
-msgstr ""
+msgstr "Initiera SECDASH"
 
 #. Plugin Name of the plugin/theme
 msgid "SECDASH"
@@ -130,7 +141,7 @@ msgstr "Du har inte tillräckliga rättigheter för att komma åt denna sida."
 
 #: secdash/secdash_options.php:29
 msgid "What happens here?"
-msgstr ""
+msgstr "Vad händer här?"
 
 #: secdash/secdash_options.php:30
 msgid ""
@@ -140,12 +151,20 @@ msgid ""
 "profile and to generate a shared key that is used to retrieve the version "
 "information from this website in a secure manner. "
 msgstr ""
+"För att kunna övervaka din webbplats behöver SECDASH kunna komma åt "
+"information om vilka versioner av WordPress och dina tillägg som är "
+"installerade. Initieringsprocessen krävs för att kunna ansluta denna "
+"WordPress-webbplats till din SECDASH-profil och generera en delad nyckel som "
+"används för att hämta versionsinformation från din webbplats på ett säkert "
+"sätt."
 
 #: secdash/secdash_options.php:33
 msgid ""
 "Please note that the initialization is not possible while WordPress is in "
 "maintenance mode or while the index.php is not reachable."
 msgstr ""
+"Vänligen notera att initieringen inte är möjlig medan WordPress är i "
+"underhållsläge eller om index.php inte går att nå."
 
 #: secdash/secdash_options.php:39
 msgid ""
@@ -154,12 +173,18 @@ msgid ""
 "license key is available on <a href=\"https://secdash.com/board\" title="
 "\"SECDASH Homepage\">SECDASH.com</a>:"
 msgstr ""
+"För att initiera SECDASH, vänligen fyll i din licensnyckel (av "
+"säkerhetsgrunder kommer denna nyckel INTE att sparas i din WordPress-"
+"databas).<br/>Licensnyckeln för SECDASH finns tillgänglig på <a href="
+"\"https://secdash.com/board\" title=\"SECDASH Homepage\">SECDASH.com</a>:"
 
 #: secdash/secdash_options.php:44
 msgid ""
 "SECDASH has been successfully activated. Re-enter your license key to repeat "
 "the initialization (e.g. after the location of this website changed)."
 msgstr ""
+"SECDASH har aktiverats. För att upprepa initieringen (exempelvis efter att "
+"länken till webbplatsen har ändrats) fyll i din nyckel på nytt här."
 
 #: secdash/secdash_options.php:51
 msgid "License Key:"
@@ -167,16 +192,16 @@ msgstr "Licensnyckel:"
 
 #. Author URI of the plugin/theme
 msgid "http://secdash.com/"
-msgstr ""
+msgstr "http://secdash.com/"
 
 #. Description of the plugin/theme
 msgid ""
 "A plugin which provides the SECDASH service with all information it needs."
-msgstr ""
+msgstr "Ett tillägg som ger SECDASH all information som behövs."
 
 #. Author of the plugin/theme
 msgid "SECDASH UG (haftungsbeschraenkt)"
-msgstr ""
+msgstr "SECDASH UG (haftungsbeschraenkt)"
 
 #~ msgid "You have to enter your license key."
 #~ msgstr "Du måste fylla i din licensnyckel."
