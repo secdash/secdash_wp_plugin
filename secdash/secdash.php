@@ -78,7 +78,7 @@ class Secdash {
 
         // Build a hash containing the SECDASH registration data
         $request_data         = array(
-            "crawlURL"      => get_site_url(),
+            "crawlURL"      => get_home_url(),
             "sharedSecret"  => $shared_secret,
             "licenseKey"    => $license_key,
             "pluginVersion" => $this->secdash_plugin_version,
