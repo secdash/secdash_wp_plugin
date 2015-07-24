@@ -14,14 +14,22 @@ class SecdashUtils {
         if (function_exists('openssl_random_pseudo_bytes')) {
             $challenge = bin2hex(openssl_random_pseudo_bytes($len));
         } elseif (function_exists('mcrypt_create_iv')) {
+            // Required in PHP < 5.3
+            srand(make_seed());
             $challenge = bin2hex(mcrypt_create_iv($len, MCRYPT_DEV_URANDOM));
         } else {
-            $challenge = chr( mt_rand( ord( 'a' ) ,ord( 'z' ) ) ) .substr( md5( time( ) ) ,1 );
-            if ($hexLength < 32) {
-                $challenge = substr($challenge, 0, $hexLength);
-            }
+            return "";
         }
         return $challenge;
+    }
+
+    private function makeSeed() 
+    {
+        function make_seed()
+        {
+          list($usec, $sec) = explode(' ', microtime());
+          return (float) $sec + ((float) $usec * 100000);
+        }
     }
 
     /*

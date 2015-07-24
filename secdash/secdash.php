@@ -3,7 +3,7 @@
  * Plugin Name: SECDASH
  * Plugin URI: http://secdash.com/
  * Description: A plugin which provides the SECDASH service with all information it needs.
- * Version: 1.0
+ * Version: 1.1
  * Author: SECDASH UG (haftungsbeschraenkt)
  * Author URI: http://secdash.com/
  * License: GPL2
@@ -21,7 +21,7 @@ class Secdash {
     private $secdash_shared_secret_name = 'secdash_shared_secret';
     private $secdash_successful_initialized = 'secdash_successful_initialized';
     private $secdash_no_cookie_challenge_name = 'secdash_no_cookie_challenge';
-    private $secdash_plugin_version = "1.0";
+    private $secdash_plugin_version = "1.1";
     private $license_key_regex = "/^[a-f0-9]{32}$/";
     private $utils;
     private $options;
@@ -68,6 +68,12 @@ class Secdash {
         if ( ! $shared_secret || $option_reset_shared_secret ) {
             // if the shared secret wasn't created yet or the user forces a reset we generate a new one and update the database
             $shared_secret = $this->utils->generateChallenge( 128 );
+            if ($sharedSecret == "") {
+                $this->settingsError( __( "No crypto function (checked 'openssl_random_pseudo_bytes' and 'mcrypt_create_iv') was found. Please make sure your PHP is up to date.", 'secdash' ), 'error' );
+                $this->redirectRefererAndExit();
+                return false;
+
+            }
             if ( ! update_option( $this->secdash_shared_secret_name, $shared_secret ) ) {
                 $this->settingsError( __( "Can't write to database. Please verify that `update_options` is available or contact SECDASH to solve this problem.", 'secdash' ), 'error' );
                 $this->redirectRefererAndExit();
@@ -78,7 +84,7 @@ class Secdash {
 
         // Build a hash containing the SECDASH registration data
         $request_data         = array(
-            "crawlURL"      => get_site_url(),
+            "crawlURL"      => get_home_url(),
             "sharedSecret"  => $shared_secret,
             "licenseKey"    => $license_key,
             "pluginVersion" => $this->secdash_plugin_version,
