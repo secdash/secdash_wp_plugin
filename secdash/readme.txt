@@ -4,7 +4,7 @@ Plugin URI: https://secdash.com
 Tags: secdash, monitoring, security, updates, auto-update
 Requires at least: 3.0.0
 Tested up to: 4.2.2
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2
 License URI: https://raw.githubusercontent.com/secdash/secdash_wp_plugin/master/LICENSE
 
@@ -35,6 +35,9 @@ Try it out here: [secdash.com](https://www.secdash.com/)
 3. As soon as one of the used software components is affected by a security issue you will be notified
 
 == Changelog ==
+
+= 1.3 =
+* Fix for old PHP Versions
 
 = 1.2 =
 *   First Plugin Update Support
