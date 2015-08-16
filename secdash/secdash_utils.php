@@ -50,7 +50,7 @@ class SecdashUtils {
         $plugins = array_keys(get_plugin_updates());
         if (count($plugins) == 0) 
         {
-            $this->sd_send_json(['updates' => array()]);
+            $this->sd_send_json(array('updates' => array()));
         }
         // Create a silent upgrader
     $upgrader = new Plugin_Upgrader(new SecdashUpgraderSkin());
