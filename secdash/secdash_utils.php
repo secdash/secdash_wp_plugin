@@ -56,7 +56,7 @@ class SecdashUtils {
     $upgrader = new Plugin_Upgrader(new SecdashUpgraderSkin());
     // get upgrader results, null => Failed!
     $results = $upgrader->bulk_upgrade($plugins);
-    $ret = ['updates' => json_encode($results)];
+    $ret = array('updates' => json_encode($results));
     // that's it, send results
     $this->sd_send_json($ret);
     }
