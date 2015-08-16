@@ -50,13 +50,13 @@ class SecdashUtils {
         $plugins = array_keys(get_plugin_updates());
         if (count($plugins) == 0) 
         {
-            $this->sd_send_json(['updates' => array()]);
+            $this->sd_send_json(array('updates' => array()));
         }
         // Create a silent upgrader
     $upgrader = new Plugin_Upgrader(new SecdashUpgraderSkin());
     // get upgrader results, null => Failed!
     $results = $upgrader->bulk_upgrade($plugins);
-    $ret = ['updates' => json_encode($results)];
+    $ret = array('updates' => json_encode($results));
     // that's it, send results
     $this->sd_send_json($ret);
     }
