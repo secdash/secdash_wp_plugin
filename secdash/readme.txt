@@ -4,7 +4,7 @@ Plugin URI: https://secdash.com
 Tags: secdash, monitoring, security, updates, auto-update
 Requires at least: 3.0.0
 Tested up to: 4.2.2
-Stable tag: 1.0
+Stable tag: 1.2
 License: GPLv2
 License URI: https://raw.githubusercontent.com/secdash/secdash_wp_plugin/master/LICENSE
 

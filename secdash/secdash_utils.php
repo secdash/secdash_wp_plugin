@@ -1,5 +1,5 @@
 <?php
-
+include 'secdash_upgrader_skin.php';
 class SecdashUtils {
     protected $_phpInfoArray = null;
     private $secdash_shared_secret_name = 'secdash_shared_secret';
@@ -14,14 +14,60 @@ class SecdashUtils {
         if (function_exists('openssl_random_pseudo_bytes')) {
             $challenge = bin2hex(openssl_random_pseudo_bytes($len));
         } elseif (function_exists('mcrypt_create_iv')) {
+            // Required in PHP > 5.3
+            srand(make_seed());
             $challenge = bin2hex(mcrypt_create_iv($len, MCRYPT_DEV_URANDOM));
         } else {
-            $challenge = chr( mt_rand( ord( 'a' ) ,ord( 'z' ) ) ) .substr( md5( time( ) ) ,1 );
+            // This is not great but right now too many pages are based on old PHP Versions to remove it.
+             $challenge = chr( mt_rand( ord( 'a' ) ,ord( 'z' ) ) ) .substr( md5( time( ) ) ,1 );
             if ($hexLength < 32) {
                 $challenge = substr($challenge, 0, $hexLength);
             }
         }
         return $challenge;
+    }
+    
+    public function sd_send_json( $data ) {
+        if ( function_exists( 'wp_send_json' ) ) {
+            wp_send_json( $data );
+        } else {
+            // Set headers
+            @header( 'Content-Type: application/json; charset=' . get_option( 'blog_charset' ) );
+            // send json
+            echo json_encode( $data );
+            exit( 0 );
+        }
+
+    }
+    /**
+    * Checks and installs all available plugin updates. 
+    * We will fail silently if necessary file rights are not given etc.
+    */
+    public function update_all_plugins() {  
+        // Force a new fetch by saying we are running as a CRON job.
+        define("DOING_CRON",true);
+        wp_version_check(array(),true); 
+        $plugins = array_keys(get_plugin_updates());
+        if (count($plugins) == 0) 
+        {
+            $this->sd_send_json(['updates' => array()]);
+        }
+        // Create a silent upgrader
+    $upgrader = new Plugin_Upgrader(new SecdashUpgraderSkin());
+    // get upgrader results, null => Failed!
+    $results = $upgrader->bulk_upgrade($plugins);
+    $ret = ['updates' => json_encode($results)];
+    // that's it, send results
+    $this->sd_send_json($ret);
+    }
+
+    private function makeSeed() 
+    {
+        function make_seed()
+        {
+          list($usec, $sec) = explode(' ', microtime());
+          return (float) $sec + ((float) $usec * 100000);
+        }
     }
 
     /*

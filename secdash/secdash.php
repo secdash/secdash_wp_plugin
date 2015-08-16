@@ -3,7 +3,7 @@
  * Plugin Name: SECDASH
  * Plugin URI: http://secdash.com/
  * Description: A plugin which provides the SECDASH service with all information it needs.
- * Version: 1.1
+ * Version: 1.2
  * Author: SECDASH UG (haftungsbeschraenkt)
  * Author URI: http://secdash.com/
  * License: GPL2
@@ -21,7 +21,7 @@ class Secdash {
     private $secdash_shared_secret_name = 'secdash_shared_secret';
     private $secdash_successful_initialized = 'secdash_successful_initialized';
     private $secdash_no_cookie_challenge_name = 'secdash_no_cookie_challenge';
-    private $secdash_plugin_version = "1.1";
+    private $secdash_plugin_version = "1.2";
     private $license_key_regex = "/^[a-f0-9]{32}$/";
     private $utils;
     private $options;
@@ -207,25 +207,7 @@ class Secdash {
             "pluginname"    => "SecDash Wordpress",
             "pluginversion" => $this->secdash_plugin_version
         );
-        $this->sd_send_json( $data );
-    }
-
-    /*
-     * If Wordpress is older than 3.5 wp_send_json isn't available
-     * This offers an alternative implementations.
-     */
-
-    private function sd_send_json( $data ) {
-        if ( function_exists( 'wp_send_json' ) ) {
-            wp_send_json( $data );
-        } else {
-            // Set headers
-            @header( 'Content-Type: application/json; charset=' . get_option( 'blog_charset' ) );
-            // send json
-            echo json_encode( $data );
-            exit( 0 );
-        }
-
+        $this->utils->sd_send_json( $data );
     }
 
     /*
@@ -240,8 +222,12 @@ class Secdash {
 
         if ( $sd_func == 'versions' ) {
             $data = $this->collectInformations();
-            $this->sd_send_json( $data );
+            $this->utils->sd_send_json( $data );
         }
+        
+        if ($sd_func == 'update_all_plugins') {
+             $this->utils->update_all_plugins();
+         }
     }
 
     /*
