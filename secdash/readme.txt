@@ -36,6 +36,12 @@ Try it out here: [secdash.com](https://www.secdash.com/)
 
 == Changelog ==
 
+= 1.2 =
+*   First Plugin Update Support
+
+= 1.1 =
+*    Minor improvements
+
 = 1.0 =
 *   Major UI improvements
 *   Localization (currently available in German und Swedish)
