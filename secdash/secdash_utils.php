@@ -14,8 +14,6 @@ class SecdashUtils {
         if (function_exists('openssl_random_pseudo_bytes')) {
             $challenge = bin2hex(openssl_random_pseudo_bytes($len));
         } elseif (function_exists('mcrypt_create_iv')) {
-            // Required in PHP > 5.3
-            srand(make_seed());
             $challenge = bin2hex(mcrypt_create_iv($len, MCRYPT_DEV_URANDOM));
         } else {
             // This is not great but right now too many pages are based on old PHP Versions to remove it.
